@@ -14,7 +14,7 @@ require("fs")
   });
 mongoose.connect(process.env.MONGODB_URI || "");
 mongoose.connection.on("connected", () => {
-  console.log(logWrite.info("Successfully connected to mongoose."));
+  logWrite.info("Successfully connected to mongoose.");
 });
 app.listen(10002, () => {
   logWrite.info("App listening at http://localhost:10002");
