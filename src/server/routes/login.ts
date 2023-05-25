@@ -4,6 +4,7 @@ import ExpressMongoSanitize from "express-mongo-sanitize";
 import { User } from "../models/User";
 import { logWrite } from "../utilities/log";
 import bcrypt from "bcrypt";
+import crypto from "crypto";
 const urlEncodedParser = bodyParser.urlencoded();
 var router = express.Router();
 router.post(
@@ -30,6 +31,15 @@ router.post(
       return;
     }
     logWrite.info(`User ${username} logged in.`);
+    const sessionToken = crypto.randomBytes(32).toString("hex");
+    response.cookie("username", username, { httpOnly: true });
+    response.cookie("sessionToken", sessionToken, {
+      httpOnly: true,
+    });
+    response.redirect("/dashboard");
+    // TODO: Unsafe?
+    user.sessionToken = await bcrypt.hash(sessionToken, 8);
+    user.save();
     return;
   }
 );
