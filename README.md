@@ -1,2 +1,2 @@
-# notrealmoney.mistertfy64.com
-A school (that mistertfy64 attends)-ran economy that isn't actually real money.
+# PlayMoneySystem
+idk my school asked me to do this for them
