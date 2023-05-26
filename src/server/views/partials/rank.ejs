@@ -1,5 +1,5 @@
 <% if (rank.isSuperAdministrator){%>
-<%= "Super Administrator" %>
+<%- "<span style='padding:2px 4px;background-color:#ff1636;color:#ffffff'>Super Administrator</span>" %>
 <% } else if (rank.isAdministrator){%>
-<%="Administrator" %>
+<%-"<span style='padding:2px 4px;background-color:#e73f56;color:#ffffff'>Administrator</span>" %>
 <% } %>
