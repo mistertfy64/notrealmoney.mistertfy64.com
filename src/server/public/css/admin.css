@@ -25,7 +25,7 @@ hr {
   background-image: linear-gradient(to right, #1a1a1a, #ffffff, #1a1a1a);
 }
 
-#balance-container {
+#administrator-container {
   grid-column: column2-start / column2-end;
   grid-row: row2-start / row2-end;
 }

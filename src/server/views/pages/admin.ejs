@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link href="./css/dashboard.css" rel="stylesheet">
+  <link href="./css/admin.css" rel="stylesheet">
 </head>
 
 <body>
@@ -19,23 +19,18 @@
     <div id="menu-container">
       <div class="link"><a href="/logout">Logout</a></div>
       <div class="link"><a href="/leaderboards">Leaderboards</a></div>
-      <div class="link"><a href="/admin">Administrator Dashboard</a></div>
+      <div class="link"><a href="/dashboard">Regular Dashboard</a></div>
     </div>
-    <div id="balance-container">
-      <div style="display:flex;justify-content:space-between;align-items:baseline">
-        <h1>Balance</h1>
-        <div>
-          <%-include("../partials/rank.ejs",{rank:data.membership})%> <%=data.username%>
-        </div>
-      </div>
+    <div id="administrator-container">
+      <h1>Administrator Dashboard</h1>
       <hr>
-      <div style="text-align:right;">
-        <span class="s-large-text">NRM¢</span><span class="x-large-text"><%=data.money%></span>
-      </div>
-      <div class="gems-text" style="display:flex;justify-content:end;align-items:baseline">
-        <span class="large-text">NRG♦</span><span class="s-large-text"><%=data.gems%></span></span>
-      </div>
-      <hr>
+      <form method="POST" action="/admin">
+        Give NRM¢ <input name="money-amount" type="number"> to User <input name="money-recipient" type="text">
+        <br>
+        Give NRG♦ <input name="gem-amount" type="number"> to User <input name="gem-recipient" type="text">
+        <br>
+        <input type="submit">
+      </form>
     </div>
   </div>
   </div>
