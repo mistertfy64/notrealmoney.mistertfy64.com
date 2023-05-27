@@ -4,6 +4,7 @@ import ExpressMongoSanitize from "express-mongo-sanitize";
 import { User } from "../models/User";
 import bcrypt from "bcrypt";
 import express from "express";
+import { Transaction } from "../models/Transaction";
 var router = express.Router();
 router.get(
   "/dashboard",
@@ -26,13 +27,20 @@ router.get(
       response.redirect("/");
       return;
     }
+    const transactions = (await Transaction.find({ to: user._id })).reverse();
     const cookieResult = await bcrypt.compare(sessionToken, user.sessionToken);
     if (!cookieResult) {
       logWrite.info(`Incorrect cookies for user ${username}`);
       response.redirect("/");
       return;
     }
-    response.render("pages/dashboard", { data: user });
+    const data = {
+      user: user,
+      transactions: transactions,
+    };
+    response.render("pages/dashboard", {
+      data: data,
+    });
   }
 );
 export { router };

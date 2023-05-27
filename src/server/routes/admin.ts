@@ -5,6 +5,7 @@ import { User } from "../models/User";
 import { logWrite } from "../utilities/log";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import { Transaction } from "../models/Transaction";
 const urlEncodedParser = bodyParser.urlencoded({ extended: true });
 var router = express.Router();
 router.get(
@@ -85,12 +86,25 @@ router.post(
       request.body["money-recipient"]
     );
     if (moneyAmount && moneyRecipient) {
-      await User.findOneAndUpdate(
+      const recipient = await User.findOneAndUpdate(
         {
           username: moneyRecipient,
         },
         { $inc: { money: moneyAmount } }
       );
+      if (recipient) {
+        const transaction = new Transaction({
+          from: user._id,
+          to: recipient._id,
+          fromUsername: username,
+          toUsername: moneyRecipient,
+          amount: moneyAmount,
+          dateTime: new Date(),
+          currency: "money",
+        });
+        transaction.save();
+      }
+
       logWrite.info(
         `Admin ${username} gave NRM${moneyAmount} to user ${moneyRecipient}`
       );
@@ -102,12 +116,25 @@ router.post(
       request.body["gem-recipient"]
     );
     if (gemAmount && gemRecipient) {
-      await User.findOneAndUpdate(
+      const recipient = await User.findOneAndUpdate(
         {
           username: gemRecipient,
         },
         { $inc: { gems: gemAmount } }
       );
+      if (recipient) {
+        const transaction = new Transaction({
+          from: user._id,
+          to: recipient._id,
+          fromUsername: username,
+          toUsername: gemRecipient,
+          amount: gemAmount,
+          dateTime: new Date(),
+          currency: "gems",
+        });
+        transaction.save();
+      }
+
       logWrite.info(
         `Admin ${username} gave NRG${gemAmount} to user ${gemRecipient}`
       );
