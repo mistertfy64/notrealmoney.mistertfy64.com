@@ -5,7 +5,7 @@ import { User } from "../models/User";
 import { logWrite } from "../utilities/log";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
-const urlEncodedParser = bodyParser.urlencoded();
+const urlEncodedParser = bodyParser.urlencoded({ extended: true });
 var router = express.Router();
 router.post(
   "/login",

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mistertfy64 NotRealMoney</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="./css/admin.css" rel="stylesheet">
+</head>
+
+<body>
+  <div id="content-container">
+    <div id="title-container">NotRealMoney 0.1.0-alpha.1</div>
+    <br>
+    <div id="menu-container">
+      <div class="link"><a href="/logout">Logout</a></div>
+      <div class="link"><a href="/leaderboards">Leaderboards</a></div>
+      <div class="link"><a href="/dashboard">Regular Dashboard</a></div>
+    </div>
+    <div id="administrator-container">
+      <h1>Administrator Dashboard</h1>
+      <hr>
+      <form method="POST" action="/admin">
+        Give NRM¢ <input name="money-amount" type="number"> to User <input name="money-recipient" type="text">
+        <br>
+        Give NRG♦ <input name="gem-amount" type="number"> to User <input name="gem-recipient" type="text">
+        <br>
+        <input type="submit">
+      </form>
+    </div>
+  </div>
+  </div>
+
+</body>
+
+</html>

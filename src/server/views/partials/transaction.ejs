@@ -1,0 +1,11 @@
+<div class="transaction">
+  <div><%=data.fromUsername%></div>
+  <div>
+    <% if (data.currency === "gems"){%>
+    <%-`<span class="gems-text">NRG♦${data.amount}</span>`%>
+    <%}else{%>
+    <%=`NRM¢${data.amount}`%>
+    <%}%>
+  </div>
+  <div><%=data.dateTime%></div>
+</div>

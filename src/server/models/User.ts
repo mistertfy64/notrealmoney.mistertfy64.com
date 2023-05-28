@@ -4,8 +4,7 @@ interface IUser {
   username: string;
   password: string;
   money: number;
-  gold: number;
-  diamonds: number;
+  gems: number;
   sessionToken: string;
   membership: {
     isSuperAdministrator: boolean;
@@ -17,8 +16,7 @@ const userSchema = new Schema<IUser>({
   username: String,
   password: String,
   money: Number,
-  gold: Number,
-  diamonds: Number,
+  gems: Number,
   sessionToken: String,
   membership: {
     isSuperAdministrator: Boolean,
