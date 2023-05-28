@@ -24,7 +24,8 @@
     "type": "git",
     "url": "git+https://github.com/mistertfy64/notrealmoney.mistertfy64.com.git"
   },
-  "author": "",
+  "author": "mistertfy64",
+  "private": true,
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mistertfy64/notrealmoney.mistertfy64.com/issues"
