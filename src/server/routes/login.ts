@@ -7,6 +7,13 @@ import bcrypt from "bcrypt";
 import crypto from "crypto";
 const urlEncodedParser = bodyParser.urlencoded({ extended: true });
 var router = express.Router();
+router.get(
+  "/login",
+  async (request: express.Request, response: express.Response) => {
+    response.redirect("/");
+  }
+);
+
 router.post(
   "/login",
   [urlEncodedParser],
