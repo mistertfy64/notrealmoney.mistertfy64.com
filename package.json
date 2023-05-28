@@ -1,6 +1,6 @@
 {
   "name": "notrealmoney.mistertfy64.com",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.1",
   "description": "idk my school asked me to do this for them",
   "main": "index.js",
   "dependencies": {
@@ -25,7 +25,7 @@
     "url": "git+https://github.com/mistertfy64/notrealmoney.mistertfy64.com.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mistertfy64/notrealmoney.mistertfy64.com/issues"
   },
