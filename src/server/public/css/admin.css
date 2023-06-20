@@ -13,6 +13,14 @@ body {
   grid-template-columns: [column1-start] 2fr[column1-end column2-start] 6fr [column2-end column3-start]2fr[column3-end];
 }
 
+#content-container-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 h1 {
   margin: 0;
   font-weight: normal;
