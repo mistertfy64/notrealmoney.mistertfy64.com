@@ -9,70 +9,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link href="./css/dashboard.css" rel="stylesheet">
+  <link href="./css/global.css" rel="stylesheet">
 </head>
 
 <body>
-  <div id="content-container-wrapper">
-    <br>
-    <br>
-    <div id="content-container">
-      <div style="display:flex;justify-content:space-between">
-        <div id="title-container">NotRealMoney 0.1.0-alpha.2</div>
-        <div id="menu-container">
-          <div class="link"><a href="/logout">Logout</a></div>
-          <div class="link"><a href="/leaderboards">Leaderboards</a></div>
-          <div class="link"><a href="https://github.com/mistertfy64/notrealmoney.mistertfy64.com">Repository</a></div>
-          <% if (data.user.membership.isSuperAdministrator||data.user.membership.isAdministrator){ %>
-          <%-`<div class="link"><a href="/admin">Administrator Dashboard</a></div>`%>
+  <%- include("../partials/header.ejs")%>
+  <div id="stats-container">
+    <div>
+      <div class="stat-container text--right-align" id="balance-container">
+        <h1>Balance</h1>
+        <div>
+          <span class="text--very-large">NRM¢&#xFE0E;</span><span class="text--very-colossal"><%=data.user.money%></span>
+          <br>
+          <span class="text--gem-color text--very-large">NRG♦&#xFE0E;</span><span class="text--gem-color text--very-colossal"><%=data.user.gems%></span>
+        </div>
+      </div>
+      <hr>
+      <div class="stat-container" id="transaction-container">
+        <h1>Transactions</h1>
+        <div id="transactions-container">
+          <% if (!data.transactions || data.transactions.length===0){%>
+          <%=`(No recent transactions to show.)` %>
+          <%}else{%>
+          <%-`<div class="transaction-header">`%>
+          <%-`<div>From</div>`%>
+          <%-`<div>Amount</div>`%>
+          <%-`<div>When</div>`%>
+          <%-`</div>`%>
+          <% for (let transaction of data.transactions){%>
+          <%- include("../partials/transaction.ejs",{data:transaction})%>
           <%}%>
+              <%} %>
         </div>
       </div>
-      <div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-      </div>
-      <div id="balance-container">
-        <div style="display:flex;justify-content:space-between;align-items:baseline">
-          <h1>Balance</h1>
-          <div>
-            <%-include("../partials/rank.ejs",{rank:data.user.membership})%> <%=data.user.username%>
-        </div>
-      </div>
-      <hr>
-      <div style="text-align:right;">
-        <span class="s-large-text">NRM¢&#xFE0E;</span><span class="x-large-text"><%=data.user.money%></span>
-      </div>
-      <div class="gems-text" style="display:flex;justify-content:end;align-items:baseline">
-        <span class="large-text">NRG♦&#xFE0E;</span><span class="s-large-text"><%=data.user.gems%></span></span>
-      </div>
-      <hr>
-    </div>
-    <div id="transcation-container">
-      <h1>Transactions</h1>
-      <div style="display:flex;justify-content:space-between;flex-direction:column;">
-        <% if (!data.transactions || data.transactions.length===0){%>
-        <%=`(No recent transactions to show.)` %>
-        <%}else{%>
-        <%-`<div class="transaction-header">`%>
-        <%-`<div>From</div>`%>
-        <%-`<div>Amount</div>`%>
-        <%-`<div>When</div>`%>
-        <%-`</div>`%>
-        <% for (let transaction of data.transactions){%>
-        <%- include("../partials/transaction.ejs",{data:transaction})%>
-        <%}%>
-          <%} %>
-
-      </div>
-      <hr>
     </div>
   </div>
-  </div>
-
+  <%- include("../partials/footer.ejs")%>
 </body>
 
 </html>

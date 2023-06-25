@@ -1,0 +1,66 @@
+html {
+  min-height: 100%;
+  font-size: 100%;
+}
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  margin: 0;
+  /* Gradient from https://uigradients.com/#MoonlitAsteroid */
+  background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  z-index: -1;
+  overflow-x: none;
+}
+
+/* TODO: ??? */
+footer > #footer {
+  background-color: #1a1a1a;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0 8px 0;
+}
+
+.footer-button {
+  font-size: 100%;
+  width: 25%;
+  padding: 8px 0 8px 0;
+  transition-duration: 250ms;
+  text-align: center;
+}
+
+.mistertfy64-wordmark {
+  height: 125%;
+  width: auto;
+}
+
+.text--large {
+  font-size: 150%;
+}
+
+.text--very-large {
+  font-size: 200%;
+}
+
+.text--colossal {
+  font-size: 300%;
+}
+
+.text--very-colossal {
+  font-size: 400%;
+}
+
+.text--right-align {
+  text-align: right;
+}
+
+.text--gem-color {
+  color: #ee82ee;
+}

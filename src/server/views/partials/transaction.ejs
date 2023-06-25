@@ -2,7 +2,7 @@
   <div><%=data.fromUsername%></div>
   <div>
     <% if (data.currency === "gems"){%>
-    <%-`<span class="gems-text">NRG♦${data.amount}</span>`%>
+    <%-`<span class="text--gem-color">NRG♦${data.amount}</span>`%>
     <%}else{%>
     <%=`NRM¢${data.amount}`%>
     <%}%>
