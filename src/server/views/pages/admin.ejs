@@ -13,27 +13,24 @@
 </head>
 
 <body>
-  <div id="content-container-wrapper"><br>
+  <div id="content-container">
+    <div id="title-container">NotRealMoney 0.1.0-alpha.2</div>
     <br>
-    <br>
-    <div id="content-container">
-      <div id="title-container">NotRealMoney 0.1.0-alpha.2</div>
-      <div id="menu-container">
-        <div class="link"><a href="/logout">Logout</a></div>
-        <div class="link"><a href="/leaderboards">Leaderboards</a></div>
-        <div class="link"><a href="/dashboard">Regular Dashboard</a></div>
-      </div>
-      <div id="administrator-container">
-        <h1>Administrator Dashboard</h1>
-        <hr>
-        <form method="POST" action="/admin">
-          Give NRM¢&#xFE0E; <input name="money-amount" type="number"> to User <input name="money-recipient" type="text">
-          <br>
-          Give NRG♦&#xFE0E; <input name="gem-amount" type="number"> to User <input name="gem-recipient" type="text">
-          <br>
-          <input type="submit">
-        </form>
-      </div>
+    <div id="menu-container">
+      <div class="link"><a href="/logout">Logout</a></div>
+      <div class="link"><a href="/leaderboards">Leaderboards</a></div>
+      <div class="link"><a href="/dashboard">Regular Dashboard</a></div>
+    </div>
+    <div id="administrator-container">
+      <h1>Administrator Dashboard</h1>
+      <hr>
+      <form method="POST" action="/admin">
+        Give NRM¢&#xFE0E; <input name="money-amount" type="number"> to User <input name="money-recipient" type="text">
+        <br>
+        Give NRG♦&#xFE0E; <input name="gem-amount" type="number"> to User <input name="gem-recipient" type="text">
+        <br>
+        <input type="submit">
+      </form>
     </div>
   </div>
   </div>

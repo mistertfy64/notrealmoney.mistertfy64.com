@@ -15,15 +15,31 @@
 </head>
 
 <body>
-  <%- include("../partials/header.ejs")%>
-  <div id="stats-container">
-    <div>
-      <div class="stat-container text--right-align" id="balance-container">
-        <h1>Balance</h1>
-        <div>
-          <span class="text--very-large">NRM¢&#xFE0E;</span><span class="text--very-colossal"><%=data.user.money%></span>
-          <br>
-          <span class="text--gem-color text--very-large">NRG♦&#xFE0E;</span><span class="text--gem-color text--very-colossal"><%=data.user.gems%></span>
+  <div id="content-container-wrapper">
+    <div id="content-container">
+      <div style="display:flex;justify-content:space-between">
+        <div id="title-container">NotRealMoney 0.1.0-alpha.2</div>
+        <div id="menu-container">
+          <div class="link"><a href="/logout">Logout</a></div>
+          <div class="link"><a href="/leaderboards">Leaderboards</a></div>
+          <div class="link"><a href="https://github.com/mistertfy64/notrealmoney.mistertfy64.com">Repository</a></div>
+          <% if (data.user.membership.isSuperAdministrator||data.user.membership.isAdministrator){ %>
+          <%-`<div class="link"><a href="/admin">Administrator Dashboard</a></div>`%>
+          <%}%>
+        </div>
+      </div>
+      <div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </div>
+      <div id="balance-container">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <h1>Balance</h1>
+          <div>
+            <%-include("../partials/rank.ejs",{rank:data.user.membership})%> <%=data.user.username%>
         </div>
       </div>
       <hr>
