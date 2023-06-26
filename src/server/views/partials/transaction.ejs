@@ -2,10 +2,11 @@
   <div><%=data.fromUsername%></div>
   <div>
     <% if (data.currency === "gems"){%>
-    <%-`<span class="text--gem-color">NRG♦${data.amount}</span>`%>
+    <%-`<span class="text--gem-color">NRG♦<span id="formattable-number-${id}" class="display-text formattable-number">${data.amount}</span></span>`%>
     <%}else{%>
-    <%=`NRM¢${data.amount}`%>
+    <%-`NRM¢<span id="formattable-number-${id}" class="display-text formattable-number">${data.amount}</span>`%>
     <%}%>
+    <%- `<span id="formattable-number-${id}__sample" class="text--hidden display-text formattable-number--sample">${data.amount}</span>` %>
   </div>
   <div><%=data.dateTime%></div>
 </div>

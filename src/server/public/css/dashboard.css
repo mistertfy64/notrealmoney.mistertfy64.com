@@ -46,3 +46,11 @@
 #transactions-container::-webkit-scrollbar {
   display: none;
 }
+
+.display-text {
+  display: inline-block;
+}
+
+.text--hidden {
+  display: none;
+}

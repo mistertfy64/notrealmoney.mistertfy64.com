@@ -20,10 +20,14 @@
     <div>
       <div class="stat-container text--right-align" id="balance-container">
         <h1>Balance</h1>
+        <div class="text--hidden">
+          <span class="text--very-colossal" id="money"><%=data.user.money%></span>
+          <span class="text--very-colossal" id="gems"><%=data.user.gems%></span>
+        </div>
         <div>
-          <span class="text--very-large">NRM¢&#xFE0E;</span><span class="text--very-colossal"><%=data.user.money%></span>
+          <span class="text--very-large">NRM¢&#xFE0E;</span><span id="display-text--money" class="display-text text--very-colossal"><%=data.user.money%></span>
           <br>
-          <span class="text--gem-color text--very-large">NRG♦&#xFE0E;</span><span class="text--gem-color text--very-colossal"><%=data.user.gems%></span>
+          <span class="text--gem-color text--very-large">NRG♦&#xFE0E;</span><span id="display-text--gems" class="display-text text--gem-color text--very-colossal"><%=data.user.gems%></span>
         </div>
       </div>
       <hr>
@@ -38,14 +42,17 @@
           <%-`<div>Amount</div>`%>
           <%-`<div>When</div>`%>
           <%-`</div>`%>
+          <% let id = 0 %>
           <% for (let transaction of data.transactions){%>
-          <%- include("../partials/transaction.ejs",{data:transaction})%>
+          <% id += 1 %>
+          <%- include("../partials/transaction.ejs",{data:transaction,id:id})%>
           <%}%>
               <%} %>
         </div>
       </div>
     </div>
   </div>
+  <script src="./js/dashboard.js"></script>
   <%- include("../partials/footer.ejs")%>
 </body>
 
